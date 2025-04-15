@@ -16,10 +16,10 @@ jobs:
       - name: Deploy via SFTP
         uses: pressidium/lftp-mirror-action@v1
         with:
-          host: ${{ secrets.SFTP_HOST }}
+          host: ${{ secrets.SFTP_HOST }}       # Usando o segredo do host
           port: 22
-          user: ${{ secrets.SFTP_USER }}
-          pass: ${{ secrets.SFTP_PASS }}
-          localDir: './'
-          remoteDir: '/public_html'
+          user: ${{ secrets.SFTP_USER }}       # Usando o segredo do usuário
+          pass: ${{ secrets.SFTP_PASS }}       # Usando o segredo da senha
+          localDir: './'                       # Diretório local
+          remoteDir: '/public_html'            # Diretório remoto
           options: '--reverse --delete --verbose'
